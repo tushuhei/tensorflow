@@ -1179,6 +1179,10 @@ def main(_):
     with gfile.FastGFile(FLAGS.output_labels, 'w') as f:
       f.write('\n'.join(image_lists.keys()) + '\n')
 
+    # Additionally, export checkpoint file as well.
+    saver = tf.train.Saver()
+    saver.save(sess, FLAGS.output_graph.replace('.pb', '.ckpt'))
+
 
 if __name__ == '__main__':
   parser = argparse.ArgumentParser()
