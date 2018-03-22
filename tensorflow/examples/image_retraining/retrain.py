@@ -1200,9 +1200,6 @@ def main(_):
                         intermediate_file_name)
         save_graph_to_file(sess, graph, intermediate_file_name)
 
-        export_model(sess, FLAGS.architecture,
-            os.path.join(FLAGS.saved_model_dir, '%s' % (i)))
-
     # We've completed all our training, so run a final test evaluation on
     # some new images we haven't used before.
     test_bottlenecks, test_ground_truth, test_filenames = (
